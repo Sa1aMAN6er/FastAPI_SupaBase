@@ -23,3 +23,13 @@ async def startup():
 @app.on_event("shutdown")
 async def shutdown():
     await database.disconnect()
+    
+#Чтобы убедиться, что FastAPI подключился к Supabase, добавь тестовый эндпоинт
+@app.get("/ping_db")
+async def ping_db():
+    try:
+        conn = await database.connect()
+        await database.disconnect()
+        return {"message": "Connected to Supabase!"}
+    except Exception as e:
+        return {"error": str(e)}
