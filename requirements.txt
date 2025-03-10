@@ -1,9 +1,6 @@
 fastapi~=0.115.8
 uvicorn
-psycopg2
-# Добавь все необходимые зависимости, которые ты используешь
-
+psycopg2-binary
 SQLAlchemy~=2.0.38
 pydantic~=2.10.6
-asyncpg~=0.29.0
 databases[asyncpg]
